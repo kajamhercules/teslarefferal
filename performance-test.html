@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Referral Page - Performance Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warning { color: orange; }
+        .result { margin: 10px 0; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Tesla Referral Page - Performance & Facebook Compatibility Test</h1>
+    
+    <div class="test-section">
+        <h2>Performance Tests</h2>
+        <div id="performance-results"></div>
+        <button onclick="runPerformanceTests()">Run Performance Tests</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Facebook Open Graph Tests</h2>
+        <div id="facebook-results"></div>
+        <button onclick="runFacebookTests()">Test Facebook Compatibility</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Image Optimization Tests</h2>
+        <div id="image-results"></div>
+        <button onclick="runImageTests()">Test Image Optimization</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Mobile Performance Tests</h2>
+        <div id="mobile-results"></div>
+        <button onclick="runMobileTests()">Test Mobile Performance</button>
+    </div>
+
+    <script>
+        function runPerformanceTests() {
+            const results = document.getElementById('performance-results');
+            results.innerHTML = '<p>Running performance tests...</p>';
+            
+            // Test critical CSS inlining
+            const criticalCSS = document.querySelector('style');
+            const hasCriticalCSS = criticalCSS && criticalCSS.textContent.includes('hero-section');
+            
+            // Test resource hints
+            const preconnect = document.querySelector('link[rel="preconnect"]');
+            const dnsPrefetch = document.querySelector('link[rel="dns-prefetch"]');
+            const preload = document.querySelector('link[rel="preload"]');
+            
+            // Test async CSS loading
+            const asyncCSS = document.querySelector('link[rel="preload"][as="style"]');
+            
+            let html = '<h3>Performance Test Results:</h3>';
+            html += `<div class="result ${hasCriticalCSS ? 'pass' : 'fail'}">Critical CSS Inlined: ${hasCriticalCSS ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${preconnect ? 'pass' : 'fail'}">Preconnect Links: ${preconnect ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${dnsPrefetch ? 'pass' : 'fail'}">DNS Prefetch: ${dnsPrefetch ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${preload ? 'pass' : 'fail'}">Resource Preloading: ${preload ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${asyncCSS ? 'pass' : 'fail'}">Async CSS Loading: ${asyncCSS ? 'PASS' : 'FAIL'}</div>`;
+            
+            // Test page load performance
+            if (performance && performance.getEntriesByType) {
+                const navTiming = performance.getEntriesByType('navigation')[0];
+                if (navTiming) {
+                    const loadTime = navTiming.loadEventEnd - navTiming.fetchStart;
+                    const domReady = navTiming.domContentLoadedEventEnd - navTiming.fetchStart;
+                    
+                    html += `<div class="result ${loadTime < 3000 ? 'pass' : loadTime < 5000 ? 'warning' : 'fail'}">Page Load Time: ${Math.round(loadTime)}ms ${loadTime < 3000 ? '(Excellent)' : loadTime < 5000 ? '(Good)' : '(Needs Improvement)'}</div>`;
+                    html += `<div class="result ${domReady < 1500 ? 'pass' : domReady < 2500 ? 'warning' : 'fail'}">DOM Ready Time: ${Math.round(domReady)}ms ${domReady < 1500 ? '(Excellent)' : domReady < 2500 ? '(Good)' : '(Needs Improvement)'}</div>`;
+                }
+            }
+            
+            results.innerHTML = html;
+        }
+        
+        function runFacebookTests() {
+            const results = document.getElementById('facebook-results');
+            results.innerHTML = '<p>Testing Facebook compatibility...</p>';
+            
+            // Test Open Graph tags
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            const ogDescription = document.querySelector('meta[property="og:description"]');
+            const ogImage = document.querySelector('meta[property="og:image"]');
+            const ogUrl = document.querySelector('meta[property="og:url"]');
+            const ogType = document.querySelector('meta[property="og:type"]');
+            const ogImageAlt = document.querySelector('meta[property="og:image:alt"]');
+            const ogLocale = document.querySelector('meta[property="og:locale"]');
+            
+            // Test Twitter Cards
+            const twitterCard = document.querySelector('meta[name="twitter:card"]');
+            const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+            const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+            const twitterImage = document.querySelector('meta[name="twitter:image"]');
+            
+            let html = '<h3>Facebook Open Graph Test Results:</h3>';
+            html += `<div class="result ${ogTitle ? 'pass' : 'fail'}">OG Title: ${ogTitle ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${ogDescription ? 'pass' : 'fail'}">OG Description: ${ogDescription ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${ogImage ? 'pass' : 'fail'}">OG Image: ${ogImage ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${ogUrl ? 'pass' : 'fail'}">OG URL: ${ogUrl ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${ogType ? 'pass' : 'fail'}">OG Type: ${ogType ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${ogImageAlt ? 'pass' : 'fail'}">OG Image Alt: ${ogImageAlt ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${ogLocale ? 'pass' : 'fail'}">OG Locale: ${ogLocale ? 'PASS' : 'FAIL'}</div>`;
+            
+            html += '<h3>Twitter Card Test Results:</h3>';
+            html += `<div class="result ${twitterCard ? 'pass' : 'fail'}">Twitter Card: ${twitterCard ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${twitterTitle ? 'pass' : 'fail'}">Twitter Title: ${twitterTitle ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${twitterDescription ? 'pass' : 'fail'}">Twitter Description: ${twitterDescription ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${twitterImage ? 'pass' : 'fail'}">Twitter Image: ${twitterImage ? 'PASS' : 'FAIL'}</div>`;
+            
+            // Test Facebook Debugger URL
+            const currentUrl = window.location.href.replace('performance-test.html', 'index.html');
+            html += `<div class="result"><strong>Facebook Debugger URL:</strong><br><a href="https://developers.facebook.com/tools/debug/?q=${encodeURIComponent(currentUrl)}" target="_blank">Test in Facebook Debugger</a></div>`;
+            
+            results.innerHTML = html;
+        }
+        
+        function runImageTests() {
+            const results = document.getElementById('image-results');
+            results.innerHTML = '<p>Testing image optimization...</p>';
+            
+            // Test WebP support
+            const supportsWebP = () => {
+                return new Promise(resolve => {
+                    const webP = new Image();
+                    webP.onload = webP.onerror = () => resolve(webP.height === 2);
+                    webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+                });
+            };
+            
+            // Test picture elements
+            const pictureElements = document.querySelectorAll('picture');
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            const eagerImages = document.querySelectorAll('img[loading="eager"]');
+            const imagesWithDimensions = document.querySelectorAll('img[width][height]');
+            
+            supportsWebP().then(webpSupported => {
+                let html = '<h3>Image Optimization Test Results:</h3>';
+                html += `<div class="result ${webpSupported ? 'pass' : 'warning'}">WebP Support: ${webpSupported ? 'SUPPORTED' : 'NOT SUPPORTED'}</div>`;
+                html += `<div class="result ${pictureElements.length > 0 ? 'pass' : 'fail'}">Picture Elements: ${pictureElements.length} found ${pictureElements.length > 0 ? '(PASS)' : '(FAIL)'}</div>`;
+                html += `<div class="result ${lazyImages.length > 0 ? 'pass' : 'fail'}">Lazy Loading Images: ${lazyImages.length} found ${lazyImages.length > 0 ? '(PASS)' : '(FAIL)'}</div>`;
+                html += `<div class="result ${eagerImages.length > 0 ? 'pass' : 'warning'}">Eager Loading Images: ${eagerImages.length} found ${eagerImages.length > 0 ? '(PASS)' : '(WARNING - Consider for hero images)'}</div>`;
+                html += `<div class="result ${imagesWithDimensions.length > 0 ? 'pass' : 'fail'}">Images with Dimensions: ${imagesWithDimensions.length} found ${imagesWithDimensions.length > 0 ? '(PASS)' : '(FAIL)'}</div>`;
+                
+                results.innerHTML = html;
+            });
+        }
+        
+        function runMobileTests() {
+            const results = document.getElementById('mobile-results');
+            results.innerHTML = '<p>Testing mobile performance...</p>';
+            
+            // Test viewport meta tag
+            const viewport = document.querySelector('meta[name="viewport"]');
+            const themeColor = document.querySelector('meta[name="theme-color"]');
+            
+            // Test touch-friendly elements
+            const buttons = document.querySelectorAll('button');
+            const touchFriendlyButtons = Array.from(buttons).filter(btn => {
+                const style = window.getComputedStyle(btn);
+                const minSize = parseInt(style.minHeight) >= 44 || parseInt(style.height) >= 44;
+                return minSize;
+            });
+            
+            // Test responsive design
+            const hasMediaQueries = Array.from(document.styleSheets).some(sheet => {
+                try {
+                    return Array.from(sheet.cssRules).some(rule => 
+                        rule.type === CSSRule.MEDIA_RULE
+                    );
+                } catch (e) {
+                    return false;
+                }
+            });
+            
+            let html = '<h3>Mobile Performance Test Results:</h3>';
+            html += `<div class="result ${viewport ? 'pass' : 'fail'}">Viewport Meta Tag: ${viewport ? 'PASS' : 'FAIL'}</div>`;
+            html += `<div class="result ${themeColor ? 'pass' : 'warning'}">Theme Color: ${themeColor ? 'PASS' : 'WARNING'}</div>`;
+            html += `<div class="result ${touchFriendlyButtons.length === buttons.length ? 'pass' : 'warning'}">Touch-Friendly Buttons: ${touchFriendlyButtons.length}/${buttons.length} ${touchFriendlyButtons.length === buttons.length ? '(PASS)' : '(WARNING)'}</div>`;
+            html += `<div class="result ${hasMediaQueries ? 'pass' : 'fail'}">Responsive Design: ${hasMediaQueries ? 'PASS' : 'FAIL'}</div>`;
+            
+            // Test network conditions simulation
+            if (navigator.connection) {
+                const connection = navigator.connection;
+                html += `<div class="result">Network Info: ${connection.effectiveType} (${connection.downlink} Mbps)</div>`;
+            }
+            
+            results.innerHTML = html;
+        }
+        
+        // Auto-run tests on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                runPerformanceTests();
+                runFacebookTests();
+                runImageTests();
+                runMobileTests();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

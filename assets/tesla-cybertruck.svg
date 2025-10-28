@@ -1,0 +1,42 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cyber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e31e24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c0c0c0;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="225" fill="url(#bg)"/>
+  
+  <!-- Cybertruck angular silhouette -->
+  <path d="M80 160 L120 120 L140 120 L160 100 L240 100 L260 120 L280 120 L320 160 L320 170 L300 170 Q300 180 290 180 L270 180 Q260 180 260 170 L140 170 Q140 180 130 180 L110 180 Q100 180 100 170 L80 170 Z" fill="url(#cyber)"/>
+  
+  <!-- Steel overlay for metallic effect -->
+  <path d="M80 160 L120 120 L140 120 L160 100 L240 100 L260 120 L280 120 L320 160 L320 170 L300 170 Q300 180 290 180 L270 180 Q260 180 260 170 L140 170 Q140 180 130 180 L110 180 Q100 180 100 170 L80 170 Z" fill="url(#steel)"/>
+  
+  <!-- Angular windshield -->
+  <path d="M140 120 L160 100 L240 100 L260 120 L220 120 L180 120 Z" fill="rgba(255,255,255,0.1)" stroke="white" stroke-width="1"/>
+  
+  <!-- Wheels (more robust for truck) -->
+  <circle cx="120" cy="170" r="18" fill="#333"/>
+  <circle cx="280" cy="170" r="18" fill="#333"/>
+  <circle cx="120" cy="170" r="10" fill="#666"/>
+  <circle cx="280" cy="170" r="10" fill="#666"/>
+  
+  <!-- Angular details -->
+  <path d="M100 150 L110 140 L130 140" stroke="white" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M270 140 L290 140 L300 150" stroke="white" stroke-width="1" fill="none" opacity="0.5"/>
+  
+  <!-- Text -->
+  <text x="200" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="bold">CYBERTRUCK</text>
+  <text x="200" y="200" text-anchor="middle" fill="#cccccc" font-family="Arial, sans-serif" font-size="14">All-Electric Pickup Truck</text>
+</svg>

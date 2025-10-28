@@ -1,0 +1,2261 @@
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Container for consistent spacing */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Mobile-first responsive breakpoints */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 3rem;
+    }
+}
+
+/* Section spacing */
+section {
+    padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 3rem 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    section {
+        padding: 4rem 0;
+    }
+}
+
+/* Typography */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2.25rem;
+    }
+}
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+}
+
+/* Fallback background when image fails to load */
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 25%, #333 50%, #1a1a1a 75%, #000 100%);
+    z-index: -1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Image loading optimization */
+.hero-image[loading="eager"] {
+    content-visibility: visible;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 2rem 0;
+    max-width: 800px;
+}
+
+/* Tesla Branding */
+.tesla-branding {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tesla-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.referral-badge {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 8px rgba(227, 30, 36, 0.3);
+}
+
+/* Hero Typography */
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero CTA */
+.hero-cta {
+    margin-top: 2rem;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 30, 36, 0.4);
+}
+
+.cta-primary:active {
+    transform: translateY(0);
+}
+
+.hero-benefit {
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 767px) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+    
+    .hero-content {
+        padding: 1rem 0;
+    }
+    
+    .tesla-logo {
+        font-size: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-primary {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* Tablet Responsive Design */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .tesla-logo {
+        font-size: 2.25rem;
+    }
+}
+
+/* Desktop Responsive Design */
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.375rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .tesla-logo {
+        font-size: 2.5rem;
+    }
+    
+    .tesla-branding {
+        margin-bottom: 3rem;
+    }
+    
+    .cta-primary {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Section Base Styles */
+.referral-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+/* Referral Code Section Styles */
+.referral-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.referral-title {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.referral-description {
+    font-size: 1.125rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Referral Link Display */
+.referral-link-container {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.5rem;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.referral-link-container:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.referral-link-display {
+    margin-bottom: 1rem;
+}
+
+.referral-link-label {
+    display: block;
+    font-size: 1.125rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.referral-link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.referral-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e31e24;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border: 2px solid #e31e24;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.referral-link:hover {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.referral-link:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+    text-decoration: none;
+}
+
+/* Copy Button */
+.copy-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.copy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 30, 36, 0.4);
+}
+
+.copy-button:active {
+    transform: translateY(0);
+}
+
+.copy-button:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+.copy-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Copy Feedback */
+.copy-feedback {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    color: #28a745;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feedback-text::before {
+    content: '✓ ';
+    margin-right: 0.25rem;
+}
+
+/* Instructions Section */
+.referral-instructions {
+    text-align: left;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #e31e24;
+}
+
+.instructions-title {
+    color: #1a1a1a;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.instructions-list {
+    list-style: none;
+    counter-reset: step-counter;
+    padding-left: 0;
+}
+
+.instructions-list li {
+    counter-increment: step-counter;
+    margin-bottom: 0.75rem;
+    padding-left: 2.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.instructions-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e31e24;
+    color: #fff;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.tesla-link {
+    color: #e31e24;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.tesla-link:hover {
+    color: #ff4444;
+}
+
+.tesla-link:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Benefits Section */
+.referral-benefits {
+    text-align: left;
+}
+
+.benefits-title {
+    color: #1a1a1a;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item.featured-benefit {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    border: 2px solid #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(227, 30, 36, 0.2);
+}
+
+.benefit-item.featured-benefit::before {
+    content: '🌟 NEW';
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.benefit-item.featured-benefit:hover {
+    background: linear-gradient(135deg, #ff4444 0%, #e31e24 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(227, 30, 36, 0.3);
+}
+
+.benefit-item.featured-benefit .benefit-text strong {
+    color: #fff;
+}
+
+.benefit-item.featured-benefit .benefit-text span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.benefit-item.featured-benefit .benefit-icon {
+    background: rgba(255, 255, 255, 0.2);
+    filter: none;
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    border-radius: 50%;
+    filter: grayscale(1);
+}
+
+.benefit-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.benefit-text strong {
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.benefit-text span {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+/* Mobile Responsive Design for Referral Section */
+@media (max-width: 767px) {
+    .referral-link-container {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .referral-link {
+        font-size: 1.125rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .referral-link-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .referral-link-label {
+        font-size: 1rem;
+    }
+    
+    .copy-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .referral-instructions {
+        padding: 1.25rem;
+        text-align: center;
+    }
+    
+    .instructions-list {
+        text-align: left;
+    }
+    
+    .instructions-list li {
+        padding-left: 2rem;
+        font-size: 0.875rem;
+    }
+    
+    .instructions-list li::before {
+        width: 1.25rem;
+        height: 1.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .benefit-item {
+        padding: 0.75rem;
+    }
+    
+    .benefit-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Tablet Responsive Design for Referral Section */
+@media (min-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .referral-code {
+        font-size: 3rem;
+    }
+    
+    .referral-code-wrapper {
+        flex-direction: row;
+    }
+}
+
+/* Desktop Responsive Design for Referral Section */
+@media (min-width: 1024px) {
+    .referral-description {
+        font-size: 1.25rem;
+    }
+    
+    .referral-link-container {
+        padding: 2.5rem;
+    }
+    
+    .referral-code {
+        font-size: 3.5rem;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .copy-button {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+    }
+}
+
+/* Tesla Models Showcase Section */
+.models-section {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    position: relative;
+}
+
+.models-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.models-title {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.models-description {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Models Grid Layout */
+.models-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Model Card Styles */
+.model-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    position: relative;
+}
+
+.model-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* Model Image Container */
+.model-image-container {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.model-image {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.model-card:hover .model-image {
+    transform: scale(1.05);
+}
+
+/* Model Badge */
+.model-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 8px rgba(227, 30, 36, 0.3);
+    z-index: 2;
+}
+
+/* Model Content */
+.model-content {
+    padding: 1.5rem;
+}
+
+.model-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+}
+
+.model-tagline {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+/* Model Specifications */
+.model-specs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #e31e24;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spec-label {
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.spec-value {
+    font-size: 0.875rem;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Model Features */
+.model-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+    color: #555;
+    padding: 0.375rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    border-color: #e31e24;
+}
+
+/* Model CTA Button */
+.model-cta {
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    color: #fff;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.model-cta:hover {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+}
+
+.model-cta:active {
+    transform: translateY(0);
+}
+
+.model-cta:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Models Footer */
+.models-footer {
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+}
+
+.models-note {
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.models-note strong {
+    color: #e31e24;
+    font-weight: 600;
+}
+
+.models-referral-cta {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+}
+
+.models-referral-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 30, 36, 0.4);
+}
+
+.models-referral-cta:active {
+    transform: translateY(0);
+}
+
+.models-referral-cta:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Tablet Responsive Design */
+@media (min-width: 768px) {
+    .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .model-specs {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .spec-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .spec-value {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    
+    .models-description {
+        font-size: 1.25rem;
+    }
+}
+
+/* Desktop Responsive Design */
+@media (min-width: 1024px) {
+    .models-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+    
+    .model-content {
+        padding: 2rem;
+    }
+    
+    .model-name {
+        font-size: 1.75rem;
+    }
+    
+    .model-tagline {
+        font-size: 1rem;
+    }
+    
+    .models-header {
+        margin-bottom: 4rem;
+    }
+    
+    .models-footer {
+        padding: 2.5rem;
+    }
+    .model-specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .spec-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .spec-value {
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+}
+
+/* Large Desktop - 5 column layout for all models */
+@media (min-width: 1200px) {
+    .models-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Extra Large Desktop - better spacing for 5 models */
+@media (min-width: 1400px) {
+    .models-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 767px) {
+    .models-header {
+        margin-bottom: 2rem;
+    }
+    
+    .models-description {
+        font-size: 1rem;
+    }
+    
+    .models-grid {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .model-content {
+        padding: 1.25rem;
+    }
+    
+    .model-name {
+        font-size: 1.25rem;
+    }
+    
+    .model-specs {
+        padding: 0.875rem;
+        gap: 0.5rem;
+    }
+    
+    .feature-item {
+        font-size: 0.6875rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .model-cta {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .models-footer {
+        padding: 1.5rem;
+    }
+    
+    .models-note {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .models-referral-cta {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.75rem;
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* Image Loading States */
+.model-image[loading="lazy"] {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .model-card:hover {
+        transform: none;
+    }
+    
+    .model-card:hover .model-image {
+        transform: none;
+    }
+    
+    .model-cta:hover {
+        transform: none;
+    }
+    
+    .models-referral-cta:hover {
+        transform: none;
+    }
+}
+
+/* Benefits Section Styles */
+.benefits-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.benefits-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.benefits-title {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.benefits-description {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Benefits Grid Layout */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Benefit Card Styles */
+.benefit-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* Benefit Icon Container */
+.benefit-icon-container {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 16px rgba(227, 30, 36, 0.3);
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon-container {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(227, 30, 36, 0.4);
+}
+
+.benefit-icon {
+    color: #fff;
+    width: 48px;
+    height: 48px;
+}
+
+/* Benefit Content */
+.benefit-content {
+    flex: 1;
+}
+
+.benefit-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.benefit-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Benefit Statistics */
+.benefit-stats {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e31e24;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Benefits Footer */
+.benefits-footer {
+    text-align: center;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+    position: relative;
+}
+
+.benefits-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+}
+
+.benefits-cta-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.benefits-cta-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.benefits-cta-description {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.benefits-cta-button {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+}
+
+.benefits-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 30, 36, 0.4);
+}
+
+.benefits-cta-button:active {
+    transform: translateY(0);
+}
+
+.benefits-cta-button:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Tablet Responsive Design */
+@media (min-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .benefits-description {
+        font-size: 1.25rem;
+    }
+    
+    .benefit-card {
+        padding: 2.5rem;
+    }
+    
+    .benefit-name {
+        font-size: 1.75rem;
+    }
+    
+    .benefit-description {
+        font-size: 1.125rem;
+    }
+    
+    .stat-value {
+        font-size: 1.75rem;
+    }
+}
+
+/* Desktop Responsive Design */
+@media (min-width: 1024px) {
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .benefits-header {
+        margin-bottom: 4rem;
+    }
+    
+    .benefits-footer {
+        padding: 3rem;
+    }
+    
+    .benefits-cta-title {
+        font-size: 2rem;
+    }
+    
+    .benefits-cta-description {
+        font-size: 1.25rem;
+    }
+    
+    .benefits-cta-button {
+        padding: 1.25rem 3rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Large Desktop - 2 column layout for better readability */
+@media (min-width: 1200px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+    
+    .benefit-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 3rem;
+    }
+    
+    .benefit-icon-container {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+        margin-bottom: 0;
+    }
+    
+    .benefit-icon {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .benefit-name {
+        font-size: 2rem;
+    }
+    
+    .benefit-description {
+        font-size: 1.125rem;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 767px) {
+    .benefits-header {
+        margin-bottom: 2rem;
+    }
+    
+    .benefits-description {
+        font-size: 1rem;
+    }
+    
+    .benefits-grid {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .benefit-card {
+        padding: 1.5rem;
+    }
+    
+    .benefit-icon-container {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+    }
+    
+    .benefit-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .benefit-name {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .benefit-description {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+    
+    .benefit-stats {
+        gap: 1rem;
+    }
+    
+    .stat-value {
+        font-size: 1.25rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .benefits-footer {
+        padding: 1.5rem;
+    }
+    
+    .benefits-cta-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .benefits-cta-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .benefits-cta-button {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .benefit-card:hover {
+        transform: none;
+    }
+    
+    .benefit-card:hover .benefit-icon-container {
+        transform: none;
+    }
+    
+    .benefits-cta-button:hover {
+        transform: none;
+    }
+}
+
+/* Contact/CTA Section Styles */
+.contact-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 50%, #1a1a1a 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 20%, rgba(227, 30, 36, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(227, 30, 36, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.contact-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-title {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 2.25rem;
+}
+
+.contact-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+
+/* CTA Container */
+.cta-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    color: #fff;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.cta-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.cta-primary-button {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+}
+
+.cta-primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 30, 36, 0.4);
+}
+
+.cta-primary-button:active {
+    transform: translateY(0);
+}
+
+.cta-primary-button:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+.cta-secondary-button {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cta-secondary-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.cta-secondary-button:active {
+    transform: translateY(0);
+}
+
+.cta-secondary-button:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Referral Program Benefits */
+.referral-program-benefits {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid #e31e24;
+}
+
+.benefits-subtitle {
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.benefit-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.benefit-check {
+    background: #e31e24;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.benefit-point span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.benefit-point strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Urgency Message */
+.urgency-message {
+    background: linear-gradient(135deg, rgba(227, 30, 36, 0.2) 0%, rgba(255, 68, 68, 0.1) 100%);
+    border: 1px solid rgba(227, 30, 36, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.urgency-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin: 0;
+    text-align: center;
+}
+
+.urgency-text strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.highlight {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4444 100%);
+    color: #fff;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Contact Footer */
+.contact-footer {
+    margin-top: 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-testimonial {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-quote {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.testimonial-quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: #e31e24;
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    font-family: serif;
+}
+
+.testimonial-author {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Tablet Responsive Design */
+@media (min-width: 768px) {
+    .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .cta-primary-button,
+    .cta-secondary-button {
+        flex: 1;
+        max-width: 200px;
+    }
+    
+    .contact-title {
+        font-size: 2.5rem;
+    }
+    
+    .contact-description {
+        font-size: 1.25rem;
+    }
+}
+
+/* Desktop Responsive Design */
+@media (min-width: 1024px) {
+    .contact-header {
+        margin-bottom: 4rem;
+    }
+    
+    .contact-title {
+        font-size: 3rem;
+    }
+    
+    .contact-description {
+        font-size: 1.375rem;
+    }
+    
+    .cta-container {
+        padding: 3rem;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta-description {
+        font-size: 1.25rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+    
+    .cta-primary-button {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.25rem;
+    }
+    
+    .cta-secondary-button {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.125rem;
+    }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 767px) {
+    .contact-header {
+        margin-bottom: 2rem;
+    }
+    
+    .contact-title {
+        font-size: 2rem;
+    }
+    
+    .contact-description {
+        font-size: 1rem;
+    }
+    
+    .cta-container {
+        padding: 1.5rem;
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-buttons {
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-primary-button,
+    .cta-secondary-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.875rem;
+        width: 100%;
+    }
+    
+    .referral-program-benefits {
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .benefits-subtitle {
+        font-size: 1rem;
+    }
+    
+    .benefit-point span {
+        font-size: 0.8125rem;
+    }
+    
+    .urgency-message {
+        padding: 0.875rem;
+    }
+    
+    .urgency-text {
+        font-size: 0.8125rem;
+    }
+    
+    .contact-footer {
+        margin-top: 2rem;
+    }
+    
+    .contact-testimonial {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-quote {
+        font-size: 1rem;
+    }
+    
+    .testimonial-quote::before {
+        font-size: 2rem;
+        top: -0.5rem;
+        left: -0.5rem;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .cta-primary-button:hover,
+    .cta-secondary-button:hover {
+        transform: none;
+    }
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #ffffff;
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+    border-top: 3px solid #e31e24;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-section {
+    text-align: left;
+}
+
+.footer-title {
+    color: #e31e24;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(227, 30, 36, 0.3);
+}
+
+.footer-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: #e31e24;
+    border-bottom-color: #e31e24;
+    transform: translateX(5px);
+}
+
+.footer-contact {
+    background: rgba(227, 30, 36, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid #e31e24;
+}
+
+.contact-note {
+    font-size: 0.875rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.contact-note strong {
+    color: #e31e24;
+}
+
+.footer-referral-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-referral-link:hover,
+.footer-referral-link:focus {
+    color: #e31e24;
+    text-decoration: underline;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.footer-legal {
+    margin-bottom: 1.5rem;
+}
+
+.copyright {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.disclaimer,
+.compliance {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #999999;
+    margin-bottom: 0.75rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    color: #888888;
+}
+
+.separator {
+    color: #666666;
+}
+
+.legal-link {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-link:hover,
+.legal-link:focus {
+    color: #e31e24;
+}
+
+.last-updated {
+    color: #888888;
+}
+
+/* Mobile Optimization for Footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem;
+        margin-top: 3rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-links {
+        align-items: center;
+    }
+    
+    .footer-link:hover,
+    .footer-link:focus {
+        transform: none; /* Remove horizontal movement on mobile */
+    }
+    
+    .footer-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .separator {
+        display: none;
+    }
+    
+    .disclaimer,
+    .compliance {
+        font-size: 0.7rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 0 0.75rem;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+    }
+    
+    .footer-title {
+        font-size: 1rem;
+    }
+    
+    .footer-text,
+    .footer-link {
+        font-size: 0.8rem;
+    }
+    
+    .footer-contact {
+        padding: 0.75rem;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .cta-primary:hover {
+        transform: none;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+button:focus,
+a:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .hero-section {
+        border: 2px solid #fff;
+    }
+    
+    .contact-section {
+        border: 2px solid #000;
+    }
+}
